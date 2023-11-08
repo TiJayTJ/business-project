@@ -1,2 +1,2 @@
-# business-project
-Project for Business Programming at SPbU
+# Business project
+Project for Business Programming at SPbU :)
