@@ -10,19 +10,18 @@ public class Employee {
   private String patronymic;
   private String jobTitle;
   private String project;
-  private String practiceProject;
   private String target;
   private Leader leader;
-  private Leader practiceLeader;
+  private Practice practice;
+  private Stage stage;
 
-  public Leader getPracticeLeader() {
-    return practiceLeader;
+  public Stage getStage() {
+    return stage;
   }
 
-  public void setPracticeLeader(Leader practiceLeader) {
-    this.practiceLeader = practiceLeader;
+  public void setStage(Stage stage) {
+    this.stage = stage;
   }
-
   public Integer getId() {
     return id;
   }
@@ -70,15 +69,6 @@ public class Employee {
   public void setProject(String project) {
     this.project = project;
   }
-
-  public String getPracticeProject() {
-    return practiceProject;
-  }
-
-  public void setPracticeProject(String practiceProject) {
-    this.practiceProject = practiceProject;
-  }
-
   public String getTarget() {
     return target;
   }
@@ -93,5 +83,13 @@ public class Employee {
 
   public void setLeader(Leader leader) {
     this.leader = leader;
+  }
+
+  public Practice getPractice() {
+    return practice;
+  }
+
+  public void setPractice(Practice practice) {
+    this.practice = practice;
   }
 }

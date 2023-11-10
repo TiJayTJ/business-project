@@ -6,7 +6,7 @@ package ru.spbu.project.models;
 public class Test {
   private Integer id;
   private Double percent;
-  private Boolean[] answer = new Boolean[20];
+  private Integer score;
   private Boolean result;
 
   public Integer getId() {
@@ -25,19 +25,19 @@ public class Test {
     this.percent = percent;
   }
 
-  public Boolean[] getAnswer() {
-    return answer;
-  }
-
-  public void setAnswer(Boolean[] answer) {
-    this.answer = answer;
-  }
-
   public Boolean getResult() {
     return result;
   }
 
   public void setResult(Boolean result) {
     this.result = result;
+  }
+
+  public Integer getScore() {
+    return score;
+  }
+
+  public void setScore(Integer score) {
+    this.score = score;
   }
 }
