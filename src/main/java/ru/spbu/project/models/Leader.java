@@ -12,7 +12,6 @@ public class Leader {
   private String patronymic;
   private String jobTitle;
   private List<String> project;
-  //реализовать проверку названия проекта сотрудника с проектами руководителя
   private List<Employee> employees;
 
   public Integer getId() {
