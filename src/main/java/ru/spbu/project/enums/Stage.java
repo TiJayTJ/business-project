@@ -1,4 +1,4 @@
-package ru.spbu.project.models;
+package ru.spbu.project.enums;
 
 /**
  * Класс ENUM, который отслеживает на какой стадии находится сотрудник
@@ -8,17 +8,7 @@ public enum Stage {
   REFUSAL_APPLICATION,
   PASSES_ENTRANCE_TEST,
   FAILED_ENTRANCE_TEST,
-  PASSED_ENTRANCE_TEST,
-  MODULE_1,
-  MODULE_2,
-  MODULE_3,
-  MODULE_4,
-  MODULE_5,
-  MODULE_6,
-  MODULE_7,
-  MODULE_8,
-  PRACTICE_TASK_1,
-  PRACTICE_TASK_2,
+  STUDYING,
   EXPECTS_PRODUCTION_PRACTICE,
   PRODUCTION_PRACTICE,
   EXAM,

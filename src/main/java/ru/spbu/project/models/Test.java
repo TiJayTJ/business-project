@@ -1,43 +1,31 @@
 package ru.spbu.project.models;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.spbu.project.enums.TestType;
+
 /**
  * Класс сущности теста
  */
+@Entity
+@Table(name = "tests")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Test {
-  private Integer id;
-  private Double percent;
-  private Integer score;
-  private Boolean result;
 
-  public Integer getId() {
-    return id;
-  }
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+  @Column(name = "employee_id")
+  private Long employeeId;
 
-  public Double getPercent() {
-    return percent;
-  }
+  @Column(name = "test_type")
+  private TestType testType;
 
-  public void setPercent(Double percent) {
-    this.percent = percent;
-  }
-
-  public Boolean getResult() {
-    return result;
-  }
-
-  public void setResult(Boolean result) {
-    this.result = result;
-  }
-
-  public Integer getScore() {
-    return score;
-  }
-
-  public void setScore(Integer score) {
-    this.score = score;
-  }
+  @Column(name = "score_percent")
+  private double scorePercent;
 }

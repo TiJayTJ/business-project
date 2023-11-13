@@ -1,95 +1,39 @@
 package ru.spbu.project.models;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.spbu.project.enums.Stage;
+
 /**
  * Класс сущности сотрудника
  */
+@Entity
+@Table(name = "employees")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
-  private Integer id;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
   private String name;
   private String surname;
   private String patronymic;
+
+  @Column(name = "job_title")
   private String jobTitle;
   private String project;
-  private String target;
-  private Leader leader;
-  private Practice practice;
+
+  @Column(name = "training_purpose")
+  private String trainingPurpose;
   private Stage stage;
 
-  public Stage getStage() {
-    return stage;
-  }
+  @Column(name = "leader_id")
+  private Long leaderId;
 
-  public void setStage(Stage stage) {
-    this.stage = stage;
-  }
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
-  }
-
-  public String getPatronymic() {
-    return patronymic;
-  }
-
-  public void setPatronymic(String patronymic) {
-    this.patronymic = patronymic;
-  }
-
-  public String getJobTitle() {
-    return jobTitle;
-  }
-
-  public void setJobTitle(String jobTitle) {
-    this.jobTitle = jobTitle;
-  }
-
-  public String getProject() {
-    return project;
-  }
-
-  public void setProject(String project) {
-    this.project = project;
-  }
-  public String getTarget() {
-    return target;
-  }
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-  public Leader getLeader() {
-    return leader;
-  }
-
-  public void setLeader(Leader leader) {
-    this.leader = leader;
-  }
-
-  public Practice getPractice() {
-    return practice;
-  }
-
-  public void setPractice(Practice practice) {
-    this.practice = practice;
-  }
+  @Column(name = "is_examined")
+  private Boolean isExamined;
 }
