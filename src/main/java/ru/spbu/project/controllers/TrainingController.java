@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.spbu.project.models.Employee;
-import ru.spbu.project.models.requests.PracticalAssignmentRequest;
-import ru.spbu.project.models.requests.TestRequest;
-import ru.spbu.project.models.requests.TrainingApplicationRequest;
+import ru.spbu.project.models.requests.*;
 import ru.spbu.project.service.TrainingService;
 
 import java.util.ArrayList;
@@ -19,6 +17,7 @@ public class TrainingController {
 
     @Autowired
     private TrainingService trainingService;
+
     @PostMapping("/submitApplication")
     public ResponseEntity<String> submitApplication(@RequestBody TrainingApplicationRequest request) {
         // TODO: 14.11.2023 логика подачи заявления на обучение
@@ -37,8 +36,8 @@ public class TrainingController {
         return ResponseEntity.ok("Entrance test completed successfully");
     }
 
-    @PostMapping("/completeModuleTest/{employeeId}/{moduleId}")
-    public ResponseEntity<String> completeModuleTest(@PathVariable Long employeeId, @PathVariable Long moduleId, @RequestBody TestRequest testRequest) {
+    @PostMapping("/completeModuleTest/{employeeId}")
+    public ResponseEntity<String> completeModuleTest(@PathVariable Long employeeId, @RequestBody Integer moduleNumber, @RequestBody TestRequest testRequest) {
         // TODO: 14.11.2023 логика прохождения теста модуля
         return ResponseEntity.ok("Module test completed successfully");
     }
@@ -50,6 +49,12 @@ public class TrainingController {
     }
 
     @PostMapping("/startInternship/{employeeId}")
+    public ResponseEntity<String> submitApplicationInternship(@PathVariable Long employeeId, @RequestBody InternshipRequest internshipRequest) {
+        // TODO: 14.11.2023 логика подачи заявления для отправки на производственную практику
+        return ResponseEntity.ok("Internship application submitted successfully");
+    }
+
+    @PostMapping("/confirmParticipation/{employeeId}")
     public ResponseEntity<String> startInternship(@PathVariable Long employeeId) {
         // TODO: 14.11.2023 логика отправки на производственную практику
         return ResponseEntity.ok("Internship started successfully");
@@ -61,24 +66,24 @@ public class TrainingController {
         return ResponseEntity.ok("Exam taken successfully");
     }
 
-    @GetMapping("/participantsByStage/{stage}")
-    public ResponseEntity<List<Employee>> getParticipantsByStage(@PathVariable String stage) {
+    @GetMapping("/participantsByStage")
+    public ResponseEntity<List<Employee>> getParticipantsByStage(@RequestBody String stage) {
         // TODO: 14.11.2023 логика получения списка участников, находящихся на определённом этапе
         List<Employee> participants = new ArrayList<>();
         return ResponseEntity.ok(participants);
     }
 
-    @GetMapping("/employeeStatus/{employeeName}")
-    public ResponseEntity<String> getEmployeeStatus(@PathVariable String employeeName) {
+    @GetMapping("/employeeStatus")
+    public ResponseEntity<String> getEmployeeStatus(@RequestParam String employeeName) {
         // TODO: 14.11.2023 логика получения этапа по ФИО
-        String status = "";
+        String status = "Da";
         return ResponseEntity.ok(status);
     }
 
-    @GetMapping("/trainingStatistics/{startTimestamp}/{endTimestamp}")
+    @GetMapping("/trainingStatistics")
     public ResponseEntity<HashMap<String, Integer>> getTrainingStatistics(
-            @PathVariable long startTimestamp,
-            @PathVariable long endTimestamp
+            @RequestBody DateTimeRequest startDateTime,
+            @RequestBody DateTimeRequest endDateTime
     ) {
         // TODO: 14.11.2023 логика получения хешмапы с информацией о том, сколько человек на каком этапе находится
         HashMap<String, Integer> statistics = new HashMap<>();
