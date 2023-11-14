@@ -74,11 +74,10 @@ public interface TrainingService {
   /**
    * Подтверждение направления на практику сотрудником.
    *
-   * @param employee сотрудник, принимающий решение
-   * @param answer   ответ сотрудника
+   * @param employee сотрудник, отправляющийся на практику
    * @return успешно внесены изменения или нет
    */
-  boolean acceptEmployeeOnInternship(Employee employee, Boolean answer);
+  boolean acceptEmployeeOnInternship(Employee employee);
 
   /**
    * Экзаменация сотрудника.

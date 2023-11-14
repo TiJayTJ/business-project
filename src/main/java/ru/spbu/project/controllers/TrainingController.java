@@ -30,6 +30,12 @@ public class TrainingController {
         return ResponseEntity.ok("Participation confirmed successfully");
     }
 
+    @PostMapping("/confirmParticipation/{employeeId}")
+    public ResponseEntity<String> refuseParticipation(@PathVariable Long employeeId) {
+        // TODO: 14.11.2023 логика отказа от обучения
+        return ResponseEntity.ok("Participation refused successfully");
+    }
+
     @PostMapping("/takeEntranceTest/{employeeId}")
     public ResponseEntity<String> takeEntranceTest(@PathVariable Long employeeId, @RequestBody TestRequest testRequest) {
         // TODO: 14.11.2023 логика прохождения входного теста
