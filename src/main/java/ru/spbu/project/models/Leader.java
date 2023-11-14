@@ -1,72 +1,29 @@
 package ru.spbu.project.models;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 /**
  * Класс сущности руководителя
  */
+@Entity
+@Table(name = "leaders")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Leader {
-  private Integer id;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
   private String name;
   private String surname;
   private String patronymic;
+
+  @Column(name = "job_title")
   private String jobTitle;
-  private List<String> project;
-  private List<Employee> employees;
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
-  }
-
-  public String getPatronymic() {
-    return patronymic;
-  }
-
-  public void setPatronymic(String patronymic) {
-    this.patronymic = patronymic;
-  }
-
-  public String getJobTitle() {
-    return jobTitle;
-  }
-
-  public void setJobTitle(String jobTitle) {
-    this.jobTitle = jobTitle;
-  }
-
-  public List<String> getProject() {
-    return project;
-  }
-
-  public void setProject(List<String> project) {
-    this.project = project;
-  }
-
-  public List<Employee> getEmployees() {
-    return employees;
-  }
-
-  public void setEmployees(List<Employee> employees) {
-    this.employees = employees;
-  }
 }

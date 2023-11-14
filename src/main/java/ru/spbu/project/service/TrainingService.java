@@ -7,13 +7,13 @@ import java.util.List;
 import ru.spbu.project.models.Employee;
 import ru.spbu.project.models.Leader;
 import ru.spbu.project.models.Practice;
-import ru.spbu.project.models.Stage;
+import ru.spbu.project.enums.Stage;
 import ru.spbu.project.models.Test;
 
 /**
  * Интерфейс сервиса клиента.
  */
-public interface ClientService {
+public interface TrainingService {
 
   /**
    * Подача заявки на обучение сотрудника руководителем.
@@ -74,11 +74,10 @@ public interface ClientService {
   /**
    * Подтверждение направления на практику сотрудником.
    *
-   * @param employee сотрудник, принимающий решение
-   * @param answer   ответ сотрудника
+   * @param employee сотрудник, отправляющийся на практику
    * @return успешно внесены изменения или нет
    */
-  boolean acceptEmployeeOnInternship(Employee employee, Boolean answer);
+  boolean acceptEmployeeOnInternship(Employee employee);
 
   /**
    * Экзаменация сотрудника.
@@ -111,11 +110,11 @@ public interface ClientService {
    * Статистический метод, подсчитывающий, сколько человек, из зашедших в обучение в определённое
    * время (например, за месяц), завершили обучение на каком этапе и с каким результатом.
    *
-   * @param beginDate начальная дата
-   * @param endDate   конечная дата
+   * @param startTimestamp начальное время
+   * @param endTimestamp   конечное время
    * @return хеш-мапа с парами "этап обучения" - "количество сотрудников, находящихся на данном
    * этапе"
    */
-  HashMap<String, Integer> countPeriod(Calendar beginDate, Calendar endDate);
+  HashMap<Stage, Integer> countPeriod(long startTimestamp, long endTimestamp);
 
 }
