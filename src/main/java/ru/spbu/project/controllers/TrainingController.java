@@ -30,7 +30,7 @@ public class TrainingController {
         return ResponseEntity.ok("Participation confirmed successfully");
     }
 
-    @PostMapping("/confirmParticipation/{employeeId}")
+    @PostMapping("/refuseParticipation/{employeeId}")
     public ResponseEntity<String> refuseParticipation(@PathVariable Long employeeId) {
         // TODO: 14.11.2023 логика отказа от обучения
         return ResponseEntity.ok("Participation refused successfully");
@@ -54,13 +54,13 @@ public class TrainingController {
         return ResponseEntity.ok("Practical assignment completed successfully");
     }
 
-    @PostMapping("/startInternship/{employeeId}")
+    @PostMapping("/applyInternship/{employeeId}")
     public ResponseEntity<String> submitApplicationInternship(@PathVariable Long employeeId, @RequestBody InternshipRequest internshipRequest) {
         // TODO: 14.11.2023 логика подачи заявления для отправки на производственную практику
         return ResponseEntity.ok("Internship application submitted successfully");
     }
 
-    @PostMapping("/confirmParticipation/{employeeId}")
+    @PostMapping("/confirmInternship/{employeeId}")
     public ResponseEntity<String> startInternship(@PathVariable Long employeeId) {
         // TODO: 14.11.2023 логика отправки на производственную практику
         return ResponseEntity.ok("Internship started successfully");
